@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --color-notion-bg: #FFFFFF;
+  --color-notion-bg-alt: #F7F6F3;
+  --color-notion-text: #37352F;
+  --color-notion-accent: #2EAADC;
+  --color-notion-border: #E9E9E7;
+  --color-notion-hover: #F1F1EF;
+}
+
+@layer base {
+  body {
+    @apply bg-notion-bg text-notion-text font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-bold tracking-tight;
+  }
+
+  /* Notion-style scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #D3D1CB;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #AEACA6;
+  }
+}
+
+.notion-card {
+  @apply border border-notion-border rounded-[3px] p-4 transition-colors hover:bg-notion-hover cursor-pointer;
+}
+
+.notion-btn-primary {
+  @apply bg-notion-accent text-white px-4 py-1.5 rounded-[3px] font-medium hover:opacity-90 transition-opacity;
+}
+
+.notion-btn-ghost {
+  @apply text-notion-text px-4 py-1.5 rounded-[3px] font-medium hover:bg-notion-hover transition-colors;
+}
+
+.notion-callout {
+  @apply flex gap-3 p-4 bg-[#F1F1EF] border-l-4 border-notion-text rounded-[3px] my-6;
+}
+
+.notion-divider {
+  @apply h-[1px] bg-notion-border my-4;
+}
+
+.notion-tag {
+  @apply px-1.5 py-0.5 rounded-[3px] text-xs font-medium;
+}
+
+/* FAQ Accordion Styles */
+.faq-item {
+  @apply border-b border-notion-border py-3;
+}
+
+.faq-question {
+  @apply flex items-center gap-2 w-full text-left font-medium hover:bg-notion-hover p-2 rounded-[3px] transition-colors;
+}
+
+.faq-answer {
+  @apply pl-8 pr-4 py-2 text-sm text-gray-600 overflow-hidden transition-all duration-300;
+}
